@@ -1,0 +1,81 @@
+<div class="main" style="margin-top: -30px;">
+    <section class="module bg-dark-30" data-background="/public/image/logo/home_slider.jpg">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+            <h1 class="module-title font-alt mb-0">Login-Register</h1>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="module"style="background-color: gray;">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
+            <h4 class="font-alt">Login</h4>
+            <hr class="divider-w mb-10">
+            <form class="form" action="/login" method="post">
+                <div class="form-group">
+                <input class="form-control" id="username" type="text" name="email" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="password" type="password" name="password" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                <button class="btn btn-round btn-b">Login</button>
+                </div>
+                <div class="form-group"><a href="">Forgot Password?</a></div>
+            </form>
+            </div>
+            <div class="col-sm-5">
+            <h4 class="font-alt">Register</h4>
+            <hr class="divider-w mb-10">
+            <form class="form" action="/register" method="POST">
+                <div class="form-group">
+                <input class="form-control" id="E-mail" type="text" name="email" placeholder="Email" required/>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="username" type="text" name="username" placeholder="Username" required/>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="password" type="password" name="password" placeholder="Password" required/>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="re-password" type="password" name="re-password" placeholder="Re-enter Password"/>
+                <span class=><span>
+                </div>
+                <script>
+                    var password = document.getElementById("password")
+                    var confirm_password = document.getElementById("re-password");
+
+                    function validatePassword(){
+                        if(password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords Don't Match");
+                        } else {
+                        confirm_password.setCustomValidity('');
+                        }
+                        }
+                    password.onchange = validatePassword;
+                    confirm_password.onkeyup = validatePassword;
+                </script>
+                <div class="form-group">
+                <input class="form-control" id="username" type="text" name="no_telp" placeholder="No HP" required/>
+                </div>
+                <div class="form-group">
+                <textarea class="form-control" id="username" type="text" name="alamat" placeholder="alamat" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="username" type="text" name="kota" placeholder="Kota" required/>
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="username" type="text" name="provinsi" placeholder="Provinsi" required/>
+                </div>
+                <div class="form-group">
+                <button class="btn btn-block btn-round btn-b">Register</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </section>
+</div>

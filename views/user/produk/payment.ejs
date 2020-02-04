@@ -1,0 +1,100 @@
+<div class="main">
+<section class="module">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h1 class="module-title font-alt">Confirm Payment</h1>
+            </div>
+          </div>
+          <hr class="divider-w pt-20">
+          <div class="row">   
+            <h4 class="font-alt">Input New Confirm Payment</h4>
+            <hr class="divider-w mb-10">
+            <form class="form" action="/confirm_payment" method="POST" enctype="multipart/form-data">
+                <div class="col-sm-5">
+                    <input type="hidden" name="email" value="<%= email%>">
+                    <div class="form-group">
+                        <select class="form-control" name="no_faktur" >
+                            <option selected disabled>Select Invoice Number</option>
+                                <% if(faktur.length){%>
+                                <% for(i=0; i < faktur.length; i++){%>
+                                    <option value="<%= faktur[i].no_faktur%>"><%= faktur[i].no_faktur%> - Rp. <%= faktur[i].total_faktur.toLocaleString('en')%></option>
+                                <%} } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="bank">
+                            <option selected disabled>Select Bank</option>>
+                            <option value="BCA">BCA - 6543000101</option>
+                            <option value="Mandiri">Mandiri - 6543000101</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="nominal" type="number" name="nominal" placeholder="Amount"/>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="custom-file">
+                            <input class="custom-file-input" id="image" type="file" name="gambar" placeholder="Upload Payment Script"/>
+                            <label class="custom-file-label" for="image">upload payment script</label>
+                        </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-round btn-b" value="Confirm Payment">
+                    </div>
+                </div>
+            </form>
+          </div>
+          <hr class="divider-w">
+          <div class="col-sm-6 col-sm-offset-3 ">
+                <h1 class="module-title font-alt">List Payment</h1>
+              </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table class="table table-striped table-border checkout-table">
+                <tbody>
+                  <tr>
+                    <th width="20%">No Payment</th>
+                    <th width="15%">No Faktur</th>
+                    <th width="15%">Amount</th>
+                    <th width="15%">Bank</th>
+                    <th width="15%">Confirm Date</th>
+                    <th width="15%">Status</th>
+                    <th width="5%">Remove</th>
+                  </tr>
+                  <% if(payment.length){ %>
+                  <% for(i=0;i < payment.length; i++){ %>
+                  <tr>
+                    <td>
+                        <h5 class="product-title font-alt"><%= payment[i].no_payment%></h5>
+                    </td>
+                    <td>
+                        <h5 class="product-title font-alt"><%= payment[i].no_faktur %></h5>
+                    </td>
+                    <td>
+                        <h5 class="product-title font-alt">Rp. <div style="float: right;"><%= payment[i].nominal.toLocaleString() %></div></h5>
+                    </td>
+                    <td>
+                        <h5 class="product-title font-alt"><%= payment[i].bank %></h5>
+                    </td>
+                    <td>
+                        <h5 class="product-title font-alt"><%= payment[i].tanggal.getDate() %> - <%= payment[i].tanggal.getMonth()+1 %> - <%= payment[i].tanggal.getFullYear() %></h5>
+                    </td>
+                    <td>
+                        <h5 class="product-title font-alt"><%= payment[i].status %></h5>
+                    </td>
+                    <td class="pr-remove">
+                        <%if(payment[i].status=='confirming'){%>
+                        <a href="/payment_delete/<%=payment[i].gambar%>" title="Remove">
+                            <i class="fa fa-times"></i>
+                        </a>
+                        <%}%>
+                    </td>
+                  </tr>
+                  <%} } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>>

@@ -1,0 +1,92 @@
+<!-- Content Header (Page header) -->
+    <% if(brand.length){%>
+      <%for(i=0; i< brand.length; i++){%>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= brand[i].kode_brand%></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Brand Detail</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Brand Detail</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+                <div class="col-12">
+                  <h4>Brand Name</h4>
+                    <div class="post">  
+                      <p class="text-lg">
+                        <b><%= brand[i].nama_brand%></b>
+                      </p>
+                    </div>
+                    <h4>Description</h4>
+                    <div class="post">  
+                      <p>
+                        <%= brand[i].deskripsi%>
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                <div class="row">
+                    <div class="col-12">
+                        <% if(brand[i].gambar==""){%>
+                          <div class="info-box bg-danger">
+                              <div class="info-box-content bg-danger">  
+                                Gambar belum di upload 
+                              </div>
+                            </div>
+                          <%}else{%>
+                            <div class="info-box bg-light">
+                                <div class="info-box-content">  
+                                    <img src="/public/image/brand/<%= brand[i].gambar%>" class="img-thumbnail">
+                                </div>
+                              </div>
+                          <%}%>
+                        </div>
+                </div>
+              <div class="text-center mt-5 mb-3">
+                  <% if(brand[i].status=="active"){ %>
+                    <a href="#" class="btn btn-sm btn-danger">Chage Status to Inactive </a>
+                  <%} else{%>
+                    <a href="#" class="btn btn-sm btn-primary">Chage Status to Active </a>
+                  <% } %>
+               
+                  <a href="/admin/brand_edit/<%= brand[i].kode_brand %>" class="btn btn-sm btn-success">Edit Brand</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <%} }%>
+    <!-- /.content -->
+

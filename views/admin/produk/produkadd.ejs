@@ -1,0 +1,140 @@
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Product Add</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Product Add</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <form role="form" action="/admin/product_add" class="apakek" enctype="multipart/form-data" method="post">
+    <section class="content">
+      <div class="row">
+        <div class="col-md-6" style="padding-left: 10px;">
+          <div class="card card-primary" >
+            <div class="card-header">
+              <h3 class="card-title">General Product Info</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputName">Product Code</label>
+                <input type="text" id="inputName" name="kode_produk" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputName">Product Name</label>
+                <input type="text" id="inputName" name="nama_produk" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="inputName">Product Category</label>
+                  <select  name="kategori" class="form-control custom-select" >
+                      <option selected disabled>Select one</option>
+                      <option value="HG">Handgun</option>
+                      <option value="SG">Shotgun</option>
+                      <option value="SM">SubMachine Gun</option>
+                      <option value="AR">Automatic Rifle</option>
+                      <option value="SR">Sniper Rifle</option>
+                      <option value="OT">Other</option>
+                    </select>
+                </div>
+              <div class="form-group">
+                <label for="inputDescription">Produck Description</label>
+                <textarea id="inputDescription" name="deskripsi" class="form-control" rows="4"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="inputDescription">Produck Spesification</label>
+                  <textarea id="inputDescription" name="spesifikasi" class="form-control" rows="4"></textarea>
+                </div>
+              <div class="form-group">
+                <label for="inputStatus">Brand Company</label>
+                <select class="form-control custom-select" name="kode_brand">
+                  <option selected disabled>Select one</option>
+                  <%if(brand.length){%>
+                  <% for(i=0; i < brand.length;i++){%>
+                  <option value="<%= brand[i].kode_brand %>" ><%= brand[i].kode_brand %> - <%= brand[i].nama_brand %></option>
+                  <% } }%>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label for="inputStatus">Status</label>
+                  <select class="form-control custom-select" name="status">
+                    <option selected disabled>Select one</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Price</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputEstimatedBudget">Quantity</label>
+                <input type="number" id="inputEstimatedBudget" name="quantity" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputSpentBudget">Price Sell</label>
+                <input type="number" id="inputSpentBudget" name="harga_jual" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputEstimatedDuration">Price Cost</label>
+                <input type="number" id="inputEstimatedDuration" name="harga_beli" class="form-control">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Image</h3>
+  
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="inputEstimatedBudget">Image 1</label>
+                  <input type="file"  name="gambar1" class="form-control-file">
+                </div>
+              <!-- /.card-body -->
+            </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" style="padding-left: 10px;">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Add Product" class="btn btn-success float-right">
+        </div>
+      </div>
+    </section>
+  </form>
+    <!-- /.content -->
+
+
+  

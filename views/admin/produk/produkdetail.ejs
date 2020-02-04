@@ -1,0 +1,156 @@
+<!-- Content Header (Page header) -->
+    <% if(data.length){%>
+      <%for(i=0; i< data.length; i++){%>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><%= data[i].kode_produk%></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Project Detail</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Product Detail</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content text-center">
+                      <img src="/public/image/product/<%= data[i].gambar1%>" style="max-height: 130px; min-height: 40px; margin: auto;" class="img-thumbnail">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content text-center">
+                        <img src="/public/image/product/<%= data[i].gambar2%>" style="max-height: 130px; min-height: 40px; margin: auto;" class="img-thumbnail">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content text-center">
+                        <img src="/public/image/product/<%= data[i].gambar3%>" style="max-height: 130px; min-height: 40px; margin: auto;" class="img-thumbnail">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <h4>Product Name</h4>
+                    <div class="post">  
+                      <p class="text-lg">
+                        <b><%= data[i].nama_produk%></b>
+                      </p>
+                    </div>
+                    <h4>Description</h4>
+                    <div class="post">  
+                      <p>
+                        <%= data[i].deskripsi%>
+                      </p>
+                    </div>
+                  <h4>Spesification</h4>
+                    <div class="post">
+                      
+                      <p>
+                        <%= data[i].spesifikasi%>
+                      </p>
+                    </div>
+
+                    
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+              <% if(data[i].status=="active"){ %>
+                <h3 class="text-primary"></i> Status &nbsp;&nbsp;&nbsp;  : <%= data[i].status%> </h3>
+              <%} else{%>
+                <h3 class="text-danger"></i> Status &nbsp;&nbsp;&nbsp;: <%= data[i].status%> </h3>
+              <% } %>
+
+              <% if(data[i].quantity > 0 ){ %>
+                <h4 class="text-primary"></i> Quantity&nbsp; : <%= data[i].quantity%> Unit</h4>
+              <%} else{%>
+                <h4 class="text-danger"></i> Quantity&nbsp; : <%= data[i].quantity%> Unit</h4>
+              <% } %>
+
+
+              <br>
+              <div class="text-muted">
+                  <p class="text-md">Price Sell
+                    <b class="d-block">Rp. <%= data[i].harga_jual;%></b>
+                  </p>
+                </div>
+              <div class="text-muted">
+                    <p class="text-md">Price cost
+                      <b class="d-block">Rp. <%= data[i].harga_beli%></b>
+                    </p>
+                  </div>
+
+              <div class="text-muted">
+                <p class="text-sm">Brand Company
+                  <b class="d-block"><%= data[i].kode_brand%></b>
+                </p>
+              </div>
+
+              <h5 class="mt-5 text-muted">Sertification & Documents</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i> Email-from-flatbal.mln</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
+                </li>
+              </ul>
+              <div class="text-center mt-5 mb-3">
+                  <% if(data[i].status=="active"){ %>
+                    <a href="#" class="btn btn-sm btn-danger">Chage Status to Inactive </a>
+                  <%} else{%>
+                    <a href="#" class="btn btn-sm btn-primary">Chage Status to Active </a>
+                  <% } %>
+               
+                  <a href="#" class="btn btn-sm btn-success">Edit Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <%} }%>
+    <!-- /.content -->
+
